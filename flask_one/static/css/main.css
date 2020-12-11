@@ -1,0 +1,37 @@
+.parent{
+        display: flex;
+        place-items:center;
+       gap: .5rem;
+    }
+    .header{
+         flex:1;
+         flex-flow: wrap;
+         justify-content: stretch;height: 40px;line-height:40px;
+    }
+    .header .h-4{
+        width: 32px;
+        height: 32px;
+        font-size: 32px;
+        
+    }
+    .todo-list{
+        margin: 0;
+        padding:0;
+    }
+    .todo-list > li{
+        display: flex;
+        /*justify-content: space-between;*/
+    }
+    
+    .todo-list .subject{
+        flex:1;
+        
+    }
+    .form-grid{
+
+        color: aliceblue;
+        display: grid;
+        grid-template-columns:80% 1fr;
+        margin: .2rem  0;padding:.2rem;
+        column-gap: .3rem;
+    }

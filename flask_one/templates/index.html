@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueApp</title>
+    <link rel="stylesheet" href="{{url_for('static' ,filename='css/main.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
     <div id="app" class='container'>
         <div class="parent text-light bg-dark">
-            
             <div class="header">
-             <h3 class="pl-2"><div class="material-icons h-4">event_note</div> App Logo</h3>
+             <div class="material-icons ml-2 h-4">event_note</div> World Events
             </div>
             <nav class="nav navbar navbar-expand-sm">
                 <ul class="nav">
-                    <li class="nav-item"><a href="#" class="btn btn-primary">Add Todo</a></li>
                     <li class="nav-item"><a href="" class="nav-link">Usage</a></li>
                     <!-- <li><a href="" ></a></li> -->
                 </ul>
@@ -24,54 +23,27 @@
         </div>
     </div>
     
-    <div class="container item-container">
-            <div class="btn-group ">
-                <a href="#" title="remove all"><span class="material-icons">delete_outline</span></a> 
-                <!-- <span class="material-icons">remove_shopping_cart</span> -->
-                <div class="bg-secondary text-light rounded pl-2 pr-2">Items <span class="badge badge-pill bg-primary text-light">4</span></div> 
-            </div>
-            <hr>
+    <div class="container">
+            <form action="" method="post">
+                <div class="form-group form-grid bg-dark text-light">
+                    <div class="col"><input type="text" name="" class="form-control" placeholder="todo_item"></div>
+                    <div class="col"><button type="submit" class="form-control btn btn-sm btn-primary">Send</button></div> 
+                </div>
+            </form> 
+            
             <ul class="list-group-flush todo-list">
                 {% for todo in todos%}
-                 <li class="list-group-item list-group-item-action"></li>
-                 <span class="mr-2"><input type="checkbox" name="fin"></span>
+                 <li class="list-group-item list-group-item-action">
+                 <span class="mr-2"><input type="checkbox" name="fin" class="form-check-input"></span>
                     <span class="subject">{{todo.text}}</span>
-                    <span class="btn-group">
-                        <i class="material-icons"> edit</i>|<i class="material-icons"> delete</i>
+                    <span class="btn-group-sm">
+                      <a href="edit/{{todo._id}}" title="edit"><i class="material-icons"> edit</i></a>  | <a href="delete/{{todo._id}}" title="delete"><i class="material-icons"> delete</i></a> 
                     </span>
                 </li>
                 {%endfor%}
             </ul>
     </div>
 </body>
-<style scoped>
-    .parent{
-        display: flex;
-        place-items:center;
-       gap: .5rem;
-    }
-    .header{
-         flex:1;
-         flex-flow: wrap;
-         justify-content: stretch;height: 40px;line-height:40px;
-    }
-    .header .h-4{
-        width: 32px;
-        height: 32px;
-        font-size: 32px;
-        
-    }
-    .todo-list > li{
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .todo-list .subject{
-        flex:50%;
-        flex-grow: initial;
-    }
-    .item-container{
-        flex-wrap:wrap ;
-    }
-</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </html>
