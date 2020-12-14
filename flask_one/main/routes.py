@@ -8,6 +8,5 @@ main = Blueprint('main',__name__)
 def index():
     todo_collection = mongo.db.todo
     todos = todo_collection.find()
-
-    print("hallo {}".format(os.environ['FLASK_RUN_PORT']))
     return render_template('index.html',todos=todos)
+    todo_collection.delete_one({'_id':ObjectId(oid)})
